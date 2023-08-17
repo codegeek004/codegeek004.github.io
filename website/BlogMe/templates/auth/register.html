@@ -1,0 +1,48 @@
+{% extends 'bootstrap/base.html' %}
+{% block body %}
+
+	<style>
+
+            
+            .h{
+                text-align:center;
+               
+            }
+            .tab{
+                color:blue;
+                position:absolute;
+                top:23%;
+                left:47%    ;
+                right:auto;
+                
+            }
+            .container{
+                width:20%;
+            }
+	   
+
+            
+         </style>
+       <h1 class = "h">Register</h1>
+
+
+    {% block content %}
+    
+        <form method = 'POST' style="text-align: center; ">
+    
+            <div class = "container" id = "form-group1">
+                <label for = "username"><b class="uname"></label>
+                <input name = "username" id = "username" class = "form-control" placeholder = "Username" type = "text" required>
+            </div>
+            <div class = "container" id = "form-group2">
+                <label for ="password"><b class="uname"></b></label>
+                <input type = "password" name = "password" id = "password" class = "form-control" placeholder = "Password" required>
+            </div>
+            </div>
+            <button class ="tab" type = "submit"  class= "btn btn-primary">Submit</button>
+        </form>
+    {% endblock %}
+{% endblock %}
+
+
+

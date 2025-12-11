@@ -1,151 +1,310 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yash Vaishnav — Portfolio</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
-
-  <meta name="description" content="Portfolio — Yash Vaishnav. Backend engineer: Django, DRF, Celery, Airflow, AWS.">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Vaishnav | Backend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-active { color: #111827; font-weight: 600; }
+        /* Smooth fade animation */
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
-<body>
-  <div class="site">
-    <header class="site-header container">
-      <div class="brand">
-        <a class="brand-name" href="#hero">Yash Vaishnav</a>
-      </div>
+<body class="bg-white text-gray-700 antialiased">
 
-      <nav class="main-nav" aria-label="Main">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-xl font-bold text-gray-900 cursor-pointer tracking-tight" onclick="showSection('home')">Yash Vaishnav</div>
+            
+            <div class="flex space-x-8 text-sm text-gray-500 font-medium">
+                <button onclick="showSection('home')" id="nav-home" class="hover:text-black transition">About</button>
+                <button onclick="showSection('experience')" id="nav-experience" class="hover:text-black transition">Experience</button>
+                <button onclick="showSection('projects')" id="nav-projects" class="hover:text-black transition">Projects</button>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-      <!-- HERO -->
-      <section id="hero" class="hero container">
-        <div class="hero-left">
-          <h1 class="hero-title">Backend engineer — APIs & infrastructure</h1>
-          <p class="hero-sub">I design and operate production-grade backend systems using Python (Django / DRF / Flask), background workers (Celery), scheduling (Airflow), and modern cloud infra (AWS + Docker). I build migration tools, resilient APIs and automation for large-scale systems.</p>
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-6 py-12 min-h-screen">
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#projects">View projects</a>
-            <a class="btn ghost" href="/yash_vaishnav_resume.pdf" target="_blank" rel="noopener">Download resume</a>
-          </div>
+        <!-- =======================
+             HOME SECTION 
+        ======================== -->
+        <div id="home" class="fade-in">
+            <div class="flex flex-col-reverse md:flex-row items-start md:items-center gap-12 mt-8">
+                
+                <!-- Text Content -->
+                <div class="flex-1">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Backend Developer & <br/>System Design Enthusiast</h1>
+                    <p class="text-lg leading-relaxed text-gray-600 mb-6">
+                        Hi! I'm Yash, a software engineer specializing in <strong class="text-gray-900">Django, DRF, and Flask</strong>. 
+                        I am passionate about building scalable, reliable, and efficient backend systems. 
+                        I focus on building clean APIs and managing infrastructure on AWS.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        I have practical experience deploying applications on AWS and managing backend infrastructure. 
+                        My work has improved API response times by 40% and handled 10K req/sec in production environments.
+                    </p>
+                    
+                    <!-- Social Links -->
+                    <div class="flex gap-6 text-2xl items-center">
+                        <a href="https://github.com/codegeek004/" target="_blank" class="text-gray-400 hover:text-black transition"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/codegeek004" target="_blank" class="text-gray-400 hover:text-blue-700 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:codegeek004@gmail.com" class="text-gray-400 hover:text-red-600 transition"><i class="fas fa-envelope"></i></a>
+                        
+                        <!-- Resume Button (UPDATED HERE) -->
+                        <a href="resume.pdf" target="_blank" class="ml-2 text-sm flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white hover:bg-gray-700 transition font-medium no-underline">
+                            <i class="far fa-file-alt"></i> Resume
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="w-full md:w-1/3 flex justify-center md:justify-end">
+                    <!-- Replace with your photo named 'profile.jpg' or use this placeholder -->
+                    <img src="https://ui-avatars.com/api/?name=Yash+Vaishnav&background=random&size=400&font-size=0.33" 
+                         alt="Yash Vaishnav" 
+                         class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover shadow-2xl border-4 border-gray-50">
+                </div>
+            </div>
+
+            <!-- Skills Chips -->
+            <div class="mt-20">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">Tech Stack</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">Python</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">Django & DRF</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">Flask</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">AWS (EC2, RDS, VPC)</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">Redis & Celery</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">Docker</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">PostgreSQL / MySQL</span>
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">Apache Airflow</span>
+                </div>
+            </div>
         </div>
 
-        <div class="hero-right">
-          <!-- Replace the src with your circular profile image -->
-          <img class="profile-photo" src="assets/profile.jpg" alt="Yash Vaishnav photo">
+
+        <!-- =======================
+             EXPERIENCE SECTION 
+        ======================== -->
+        <div id="experience" class="hidden fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-10">Experience</h2>
+
+            <!-- Job 1 -->
+            <div class="flex gap-4 md:gap-8 items-start relative pb-16">
+                <!-- Timeline Line -->
+                <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-gray-200"></div>
+
+                <!-- Logo / Icon -->
+                <div class="z-10 bg-white p-1 rounded-full border border-gray-200 shadow-sm w-12 h-12 flex items-center justify-center shrink-0 mt-1">
+                    <i class="fas fa-briefcase text-blue-600 text-lg"></i>
+                </div>
+
+                <div class="w-full">
+                    <div class="flex flex-col md:flex-row justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Backend Developer Intern</h3>
+                            <p class="text-blue-600 font-medium text-lg">Techritzy Pvt Ltd</p>
+                            <p class="text-sm text-gray-400 mt-1">Indore, Madhya Pradesh, India</p>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full mt-2 md:mt-0 inline-block">
+                            Aug 2024 - Jan 2025
+                        </span>
+                    </div>
+
+                    <!-- Detailed Points -->
+                    <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
+                        <ul class="list-disc list-outside ml-4 space-y-4 text-gray-700 text-base leading-relaxed">
+                            <li>
+                                <strong>Secure API Architecture:</strong> Designed and developed a robust RESTful API using Django REST Framework (DRF), securing 25+ critical endpoints with JWT authentication, OAuth 2.0, and granular Role-Based Access Control (RBAC), resulting in zero unauthorized access incidents throughout the tenure.
+                            </li>
+                            <li>
+                                <strong>Asynchronous Task Engineering:</strong> Engineered a scalable background processing system using <strong>Celery Beat and Redis</strong> to handle high-volume scheduling (2,000+ daily tasks) triggered by the Gemini API. Integrated Gmail’s SMTP service with automatic retry mechanisms to ensure 100% reliability in notification delivery.
+                            </li>
+                            <li>
+                                <strong>Workflow Optimization:</strong> Orchestrated complex workflows using <strong>Apache Airflow</strong> to prioritize critical email notifications, drastically reducing processing latency from 12 minutes to under 2 minutes. Utilized the Airflow UI for real-time monitoring, execution logs, and automated failure alerting.
+                            </li>
+                            <li>
+                                <strong>Cloud Infrastructure (AWS):</strong> Deployed and managed a production-grade infrastructure on AWS. Configured Ubuntu EC2 instances coupled with RDS (MySQL) in a Private Subnet for enhanced security. Implemented AWS VPC, Security Groups, and Application Load Balancers (ALB) to distribute traffic, achieving <strong>99.9% system uptime</strong> and accelerating deployment cycles by 60%.
+                            </li>
+                            <li>
+                                <strong>High-Performance Server Setup:</strong> Configured Nginx as a reverse proxy to efficiently handle client connections and serve static assets, while forwarding dynamic requests to Gunicorn. Stress-tested the architecture to successfully handle peak loads of <strong>10,000 requests per second</strong>.
+                            </li>
+                            <li>
+                                <strong>DevOps & Security:</strong> Automated the SDLC lifecycle by scripting SSL certificate installation and renewal via Let’s Encrypt, ensuring continuous HTTPS encryption and compliance with security best practices.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="flex gap-4 md:gap-8 items-start relative">
+                 <div class="z-10 bg-white p-1 rounded-full border border-gray-200 shadow-sm w-12 h-12 flex items-center justify-center shrink-0 mt-1">
+                    <i class="fas fa-graduation-cap text-gray-600 text-lg"></i>
+                </div>
+                <div class="w-full pt-2">
+                     <h3 class="text-xl font-bold text-gray-900">VIT Bhopal University</h3>
+                     <p class="text-gray-700 font-medium">B.Tech (Specialization in Cloud Computing and Automation)</p>
+                     <p class="text-sm text-gray-500 mt-1">CGPA: 7.62</p>
+                </div>
+            </div>
+
         </div>
-      </section>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="container section">
-        <div class="section-header">
-          <h2>Projects</h2>
-          <p class="muted">Selected work — live demos, source code and short case notes. Projects are loaded from GitHub (public repos) when available; a manual fallback exists.</p>
+
+        <!-- =======================
+             PROJECTS SECTION 
+        ======================== -->
+        <div id="projects" class="hidden fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Project Card 1 -->
+                <div class="group border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full">
+                    <div class="h-44 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">PhotosPurge</h3>
+                            <div class="flex gap-3">
+                                <a href="https://github.com/codegeek004/codemos-hackathon/" class="text-gray-400 hover:text-black"><i class="fab fa-github text-xl"></i></a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed flex-1">
+                            A high-volume data migration tool tackling Google Account storage limits. Enables users to bulk delete category-wise emails and migrate Google Photos. Successfully processed <strong>50 GB+ of data for 200+ beta users</strong> using async queues.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">Django</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">Celery & Redis</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">OAuth 2.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="group border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full">
+                    <div class="h-44 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">Unthinkable Deployment</h3>
+                            <div class="flex gap-3">
+                                <a href="https://github.com/codegeek004/unthinkable_deployment" class="text-gray-400 hover:text-black"><i class="fab fa-github text-xl"></i></a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed flex-1">
+                            A robust Bash automation suite streamlining the entire backend setup (Nginx, Gunicorn, SSL, Firewall). Drastically reduced manual server provisioning time from hours to just <strong>5 minutes</strong>, ensuring consistent and secure environments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">Bash Scripting</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">Linux</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project Card 3 -->
+                <div class="group border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full">
+                    <div class="h-44 bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">Authentication API</h3>
+                            <div class="flex gap-3">
+                                <a href="https://github.com/codegeek004/parkeasy-api" class="text-gray-400 hover:text-black"><i class="fab fa-github text-xl"></i></a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed flex-1">
+                            A production-ready security API featuring JWT issuance/refresh, Multi-Factor Authentication (MFA) via Google Authenticator, IP-based blocking logic, and enforcement of Single Device Login sessions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">DRF</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">SimpleJWT</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project Card 4 -->
+                <div class="group border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full">
+                    <div class="h-44 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">ParkEasy</h3>
+                            <div class="flex gap-3">
+                                <a href="https://github.com/codegeek004/parkeasy" class="text-gray-400 hover:text-black"><i class="fab fa-github text-xl"></i></a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed flex-1">
+                            Smart parking management system featuring OAuth 2.0 (Google Sign-In), Role-Based Access, and automated background jobs (APScheduler) to reclaim expired slots and manage real-time availability.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">Flask</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">MySQL</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-gray-600">APScheduler</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div id="projects-grid" class="projects-grid" aria-live="polite">
-          <!-- JS injects cards here -->
-        </div>
-
-        <!-- Manual fallback (keeps consistent markup & styles) -->
-        <div id="projects-fallback" class="projects-fallback visually-hidden">
-          <article class="project-card">
-            <img class="project-thumb" src="assets/photospurge.jpg" alt="PhotosPurge thumbnail">
-            <div class="project-body">
-              <h3 class="project-title">PhotosPurge</h3>
-              <p class="project-desc">Google Photos migration & cleanup tool — Django, Celery, MySQL. Handled large account migrations and storage cleanup automation.</p>
-              <div class="project-tags">
-                <span class="tag">Django</span><span class="tag">Celery</span><span class="tag">MySQL</span>
-              </div>
-              <div class="project-links">
-                <a class="link" href="https://github.com/codegeek004/PhotosPurge" target="_blank" rel="noopener">View source</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="project-thumb" src="assets/auth-api.jpg" alt="Auth API thumbnail">
-            <div class="project-body">
-              <h3 class="project-title">Authentication API</h3>
-              <p class="project-desc">Secure DRF auth system with JWT, MFA, single-device enforcement and hardened login flows.</p>
-              <div class="project-tags">
-                <span class="tag">DRF</span><span class="tag">JWT</span><span class="tag">Security</span>
-              </div>
-              <div class="project-links">
-                <a class="link" href="https://github.com/codegeek004/auth-api" target="_blank" rel="noopener">View source</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- EXPERIENCE (vertical timeline) -->
-      <section id="experience" class="container section">
-        <h2>Experience</h2>
-
-        <div class="timeline">
-          <!-- each timeline-item has logo and a card -->
-          <div class="timeline-item">
-            <div class="timeline-logo">
-              <img src="assets/google-logo.png" alt="Google logo">
-            </div>
-            <div class="timeline-line"></div>
-            <div class="timeline-card">
-              <h3>Software Engineer — Applied AI</h3>
-              <time>Jan 2025 — Present</time>
-              <p>Building agentic LLM systems and scalable backend tooling for production LLM services.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-logo">
-              <img src="assets/previous-logo.png" alt="Previous company">
-            </div>
-            <div class="timeline-line"></div>
-            <div class="timeline-card">
-              <h3>Backend Developer (Contract)</h3>
-              <time>2023 — 2024</time>
-              <p>Designed and deployed APIs, background processing and CI for multiple customer projects.</p>
-            </div>
-          </div>
-
-          <!-- Add additional timeline-item blocks as needed -->
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="container section">
-        <h2>About</h2>
-        <p class="content-paragraph">I focus on backend architecture, automation and reliable deployments. I enjoy data migration problems, reducing failure modes, and automating operational tasks. I graduated with a B.Tech in Cloud Computing & Automation and currently take on backend contract and full-time work.</p>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="container section">
-        <h2>Contact</h2>
-        <ul class="contact-list">
-          <li>Email: <a href="mailto:codegeek004@gmail.com">codegeek004@gmail.com</a></li>
-          <li>GitHub: <a id="github-profile" href="https://github.com/codegeek004" target="_blank" rel="noopener">github.com/codegeek004</a></li>
-          <li>LinkedIn: <a href="https://linkedin.com/in/codegeek004" target="_blank" rel="noopener">linkedin.com/in/codegeek004</a></li>
-        </ul>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="site-footer container">
-        <small>© <span id="current-year"></span> Yash Vaishnav</small>
-      </footer>
     </main>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 py-10 text-center text-sm text-gray-400 mt-auto bg-gray-50">
+        <p>&copy; 2025 Yash Vaishnav. Built with <i class="fas fa-code text-blue-500"></i> & Tailwind.</p>
+        <div class="flex justify-center gap-4 mt-4">
+             <a href="https://linkedin.com/in/codegeek004" class="hover:text-blue-700 transition"><i class="fab fa-linkedin text-lg"></i></a>
+             <a href="https://github.com/codegeek004/" class="hover:text-black transition"><i class="fab fa-github text-lg"></i></a>
+        </div>
+    </footer>
+
+    <!-- Logic to Switch Sections -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('experience').classList.add('hidden');
+            document.getElementById('projects').classList.add('hidden');
+
+            // Remove active style from all nav buttons
+            document.getElementById('nav-home').classList.remove('nav-active');
+            document.getElementById('nav-experience').classList.remove('nav-active');
+            document.getElementById('nav-projects').classList.remove('nav-active');
+
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            // Add active style to selected nav button
+            document.getElementById('nav-' + sectionId).classList.add('nav-active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize: Set Home as active
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection('home');
+        });
+    </script>
 </body>
 </html>
-

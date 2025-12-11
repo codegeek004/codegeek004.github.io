@@ -1,9 +1,151 @@
-<html>
-    <head>
-        <title>My website</title>
-    </head>
-    <body>
-        <h1>Hello, I am Yash Vaishnav</h1>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yash Vaishnav — Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Portfolio — Yash Vaishnav. Backend engineer: Django, DRF, Celery, Airflow, AWS.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site">
+    <header class="site-header container">
+      <div class="brand">
+        <a class="brand-name" href="#hero">Yash Vaishnav</a>
+      </div>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero container">
+        <div class="hero-left">
+          <h1 class="hero-title">Backend engineer — APIs & infrastructure</h1>
+          <p class="hero-sub">I design and operate production-grade backend systems using Python (Django / DRF / Flask), background workers (Celery), scheduling (Airflow), and modern cloud infra (AWS + Docker). I build migration tools, resilient APIs and automation for large-scale systems.</p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn ghost" href="/yash_vaishnav_resume.pdf" target="_blank" rel="noopener">Download resume</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- Replace the src with your circular profile image -->
+          <img class="profile-photo" src="assets/profile.jpg" alt="Yash Vaishnav photo">
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="container section">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <p class="muted">Selected work — live demos, source code and short case notes. Projects are loaded from GitHub (public repos) when available; a manual fallback exists.</p>
+        </div>
+
+        <div id="projects-grid" class="projects-grid" aria-live="polite">
+          <!-- JS injects cards here -->
+        </div>
+
+        <!-- Manual fallback (keeps consistent markup & styles) -->
+        <div id="projects-fallback" class="projects-fallback visually-hidden">
+          <article class="project-card">
+            <img class="project-thumb" src="assets/photospurge.jpg" alt="PhotosPurge thumbnail">
+            <div class="project-body">
+              <h3 class="project-title">PhotosPurge</h3>
+              <p class="project-desc">Google Photos migration & cleanup tool — Django, Celery, MySQL. Handled large account migrations and storage cleanup automation.</p>
+              <div class="project-tags">
+                <span class="tag">Django</span><span class="tag">Celery</span><span class="tag">MySQL</span>
+              </div>
+              <div class="project-links">
+                <a class="link" href="https://github.com/codegeek004/PhotosPurge" target="_blank" rel="noopener">View source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img class="project-thumb" src="assets/auth-api.jpg" alt="Auth API thumbnail">
+            <div class="project-body">
+              <h3 class="project-title">Authentication API</h3>
+              <p class="project-desc">Secure DRF auth system with JWT, MFA, single-device enforcement and hardened login flows.</p>
+              <div class="project-tags">
+                <span class="tag">DRF</span><span class="tag">JWT</span><span class="tag">Security</span>
+              </div>
+              <div class="project-links">
+                <a class="link" href="https://github.com/codegeek004/auth-api" target="_blank" rel="noopener">View source</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE (vertical timeline) -->
+      <section id="experience" class="container section">
+        <h2>Experience</h2>
+
+        <div class="timeline">
+          <!-- each timeline-item has logo and a card -->
+          <div class="timeline-item">
+            <div class="timeline-logo">
+              <img src="assets/google-logo.png" alt="Google logo">
+            </div>
+            <div class="timeline-line"></div>
+            <div class="timeline-card">
+              <h3>Software Engineer — Applied AI</h3>
+              <time>Jan 2025 — Present</time>
+              <p>Building agentic LLM systems and scalable backend tooling for production LLM services.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-logo">
+              <img src="assets/previous-logo.png" alt="Previous company">
+            </div>
+            <div class="timeline-line"></div>
+            <div class="timeline-card">
+              <h3>Backend Developer (Contract)</h3>
+              <time>2023 — 2024</time>
+              <p>Designed and deployed APIs, background processing and CI for multiple customer projects.</p>
+            </div>
+          </div>
+
+          <!-- Add additional timeline-item blocks as needed -->
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="container section">
+        <h2>About</h2>
+        <p class="content-paragraph">I focus on backend architecture, automation and reliable deployments. I enjoy data migration problems, reducing failure modes, and automating operational tasks. I graduated with a B.Tech in Cloud Computing & Automation and currently take on backend contract and full-time work.</p>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="container section">
+        <h2>Contact</h2>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:codegeek004@gmail.com">codegeek004@gmail.com</a></li>
+          <li>GitHub: <a id="github-profile" href="https://github.com/codegeek004" target="_blank" rel="noopener">github.com/codegeek004</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/in/codegeek004" target="_blank" rel="noopener">linkedin.com/in/codegeek004</a></li>
+        </ul>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer container">
+        <small>© <span id="current-year"></span> Yash Vaishnav</small>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
 
